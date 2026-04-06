@@ -4,7 +4,7 @@ A simple [Tauri v2](https://tauri.app) app for controlling a [blink(1)](https://
 
 Click a color swatch to fade the blink(1) to that color. Use the Rescan button to detect a device that was plugged in after launch.
 
-This is a port of [electron-blink1-toy](../node/electron-blink1-toy/) — same UI and behavior, rewritten with a Rust/Tauri backend instead of Electron/Node. USB HID access uses the [`hidapi`](https://crates.io/crates/hidapi) crate directly, with no native Node modules required.
+This is a port of [electron-blink1-toy](https://github.com/todbot/electron-blink1-toy/) — same UI and behavior, rewritten with a Rust/Tauri backend instead of Electron/Node. USB HID access uses the [`hidapi`](https://crates.io/crates/hidapi) crate directly, with no native Node modules required.
 
 ## Requirements
 
