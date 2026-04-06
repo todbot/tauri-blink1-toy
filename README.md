@@ -35,7 +35,7 @@ make dist-win           # signed Windows NSIS installer (requires env vars below
 make dist-linux         # Linux .deb package + .zip of the binary
 ```
 
-### macOS code signing & notarization
+### MacOS code signing & notarization
 
 ```bash
 export APPLE_SIGNING_IDENTITY="Developer ID Application: Your Name (TEAMID)"
@@ -108,7 +108,7 @@ The three Tauri commands map 1:1 to the original Electron IPC channels:
 ## Dependencies
 
 
-### macOS
+### MacOS
 
 Install Rust via `rustup`:
 
@@ -153,6 +153,21 @@ If `clang` is still not found, add LLVM to PATH manually. In an elevated PowerSh
 Then open a new terminal and retry.
 
 WebView2 (required by Tauri) is pre-installed on Windows 10 and 11.
+
+### Linux
+
+Install Rust via `rustup` — do not use `apt install rustc`, which is several versions behind:
+
+```bash
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+source $HOME/.cargo/env
+```
+
+Then install the Tauri CLI:
+
+```bash
+cargo install tauri-cli
+```
 
 ## See also
 
