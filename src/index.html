@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>blink(1) Toy</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>blink(1) Toy</h1>
+    <p id="status">Checking for blink(1) device…</p>
+
+    <div>
+      <h3>Click to change color</h3>
+      <div id="swatches"></div>
+    </div>
+
+    <button id="rescan-btn">Rescan</button>
+
+    <script src="blink1-bridge.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

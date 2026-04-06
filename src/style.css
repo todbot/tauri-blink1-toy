@@ -1,0 +1,83 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background: #646464;
+  color: #e6e6e6;
+  padding: 24px;
+  gap: 16px;
+}
+
+h1 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #e6e6e6;
+}
+
+#status {
+  font-size: 14px;
+  color: #bbb;
+  min-height: 20px;
+}
+
+#status.found {
+  color: #88cc88;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ccc;
+  margin-bottom: 8px;
+}
+
+#swatches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.swatch {
+  width: 48px;
+  height: 48px;
+  border: 2px solid rgba(255,255,255,0.15);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.swatch:hover {
+  border-color: rgba(255,255,255,0.6);
+  transform: scale(1.08);
+}
+
+.swatch:active {
+  transform: scale(0.96);
+}
+
+#rescan-btn {
+  width: 120px;
+  height: 36px;
+  background: #505050;
+  color: #e6e6e6;
+  border: 1px solid #707070;
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+#rescan-btn:hover  { background: #606060; }
+#rescan-btn:active { background: #404040; }

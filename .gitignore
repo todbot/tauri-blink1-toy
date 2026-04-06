@@ -1,0 +1,8 @@
+# Rust / Cargo
+src-tauri/target/
+
+# Tauri generated files (rebuilt by cargo check/build)
+src-tauri/gen/
+
+# macOS
+.DS_Store
