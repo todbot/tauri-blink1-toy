@@ -1,4 +1,4 @@
-.PHONY: dev build dist-mac dist-mac-unsigned dist-win icons
+.PHONY: dev build dist-mac dist-mac-unsigned dist-win dist-win-unsigned icons
 
 # Run in development mode (hot-reload frontend, Rust backend rebuilt on change)
 dev:
@@ -18,9 +18,16 @@ dist-mac-unsigned:
 	cargo tauri build --target universal-apple-darwin \
 	  --config '{"bundle":{"macOS":{"signingIdentity":null}}}'
 
-# Windows NSIS installer
+# Windows NSIS installer, signed via Azure Trusted Signing
+# Requires: AZURE_TENANT_ID, AZURE_CLIENT_ID, AZURE_CLIENT_SECRET
+# Install signing tool first: cargo install trusted-signing-cli
 dist-win:
 	cargo tauri build --target x86_64-pc-windows-msvc
+
+# Windows unsigned build for local testing
+dist-win-unsigned:
+	cargo tauri build --target x86_64-pc-windows-msvc \
+	  --config '{"bundle":{"windows":{"signCommand":null}}}'
 
 # Generate all required icon sizes from a 1024x1024 source PNG
 # Usage: make icons SRC=/path/to/icon-1024.png

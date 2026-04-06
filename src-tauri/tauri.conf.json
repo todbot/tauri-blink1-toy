@@ -39,7 +39,8 @@
     "windows": {
       "digestAlgorithm": "sha256",
       "certificateThumbprint": null,
-      "timestampUrl": "http://timestamp.digicert.com"
+      "timestampUrl": "http://timestamp.digicert.com",
+      "signCommand": "trusted-signing-cli -e https://eus.codesigning.azure.net/ -a YOUR_ACCOUNT_NAME -c YOUR_CERTIFICATE_PROFILE %1"
     }
   }
 }
