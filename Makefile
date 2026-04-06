@@ -1,4 +1,4 @@
-.PHONY: dev build dist-mac dist-mac-unsigned dist-win dist-win-unsigned icons
+.PHONY: dev build dist-mac dist-mac-unsigned dist-win dist-win-unsigned dist-linux icons
 
 # Run in development mode (hot-reload frontend, Rust backend rebuilt on change)
 dev:
@@ -9,7 +9,7 @@ build:
 	cargo tauri build
 
 # macOS signed + notarized universal DMG (arm64 + x64)
-# Requires: APPLE_ID, APPLE_APP_SPECIFIC_PASSWORD, APPLE_TEAM_ID env vars
+# Requires: APPLE_SIGNING_IDENTITY, APPLE_ID, APPLE_APP_SPECIFIC_PASSWORD, APPLE_TEAM_ID env vars
 dist-mac:
 	cargo tauri build --target universal-apple-darwin
 
@@ -28,6 +28,12 @@ dist-win:
 dist-win-unsigned:
 	cargo tauri build --target x86_64-pc-windows-msvc \
 	  --config '{"bundle":{"windows":{"signCommand":null}}}'
+
+# Linux .deb package + .zip of the binary
+dist-linux:
+	cargo tauri build --target x86_64-unknown-linux-gnu --bundles deb
+	cd src-tauri/target/x86_64-unknown-linux-gnu/release && \
+	  zip blink1-toy-linux-x86_64.zip blink1-toy
 
 # Generate all required icon sizes from a 1024x1024 source PNG
 # Usage: make icons SRC=/path/to/icon-1024.png

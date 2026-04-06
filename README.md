@@ -32,18 +32,22 @@ make dist-mac-unsigned  # unsigned universal macOS .app (arm64 + x86_64)
 make dist-mac           # signed + notarized universal macOS DMG (requires env vars below)
 make dist-win-unsigned  # unsigned Windows NSIS installer (local testing)
 make dist-win           # signed Windows NSIS installer (requires env vars below)
+make dist-linux         # Linux .deb package + .zip of the binary
 ```
 
 ### macOS code signing & notarization
 
 ```bash
+export APPLE_SIGNING_IDENTITY="Developer ID Application: Your Name (TEAMID)"
 export APPLE_ID="your@email.com"
-export APPLE_APP_SPECIFIC_PASSWORD="xxxx-xxxx-xxxx-xxxx"
+export APPLE_PASSWORD="xxxx-xxxx-xxxx-xxxx"
 export APPLE_TEAM_ID="XXXXXXXXXX"
 make dist-mac
 ```
 
-`APPLE_APP_SPECIFIC_PASSWORD` must be an [App-Specific Password](https://support.apple.com/en-us/102431), not your Apple ID password.
+- `APPLE_SIGNING_IDENTITY` — signs the binary; find the exact string with `security find-identity -v -p codesigning`
+- `APPLE_PASSWORD` — notarizes with Apple's servers; must be an [App-Specific Password](https://support.apple.com/en-us/102431), not your Apple ID password (note: Electron calls this `APPLE_APP_SPECIFIC_PASSWORD`)
+- `APPLE_ID` and `APPLE_TEAM_ID` — your Apple developer account credentials for notarization
 
 ### Windows code signing
 
