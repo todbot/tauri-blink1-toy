@@ -6,6 +6,8 @@ Click a color swatch to fade the blink(1) to that color. Use the Rescan button t
 
 This is a port of [electron-blink1-toy](https://github.com/todbot/electron-blink1-toy/) — same UI and behavior, rewritten with a Rust/Tauri backend instead of Electron/Node. USB HID access uses the [`hidapi`](https://crates.io/crates/hidapi) crate directly, with no native Node modules required.
 
+<img src="./docs/tauri-blink1-toy-screenshot.png" width=700 />
+
 ## Requirements
 
 - [Rust](https://rustup.rs) (stable)
