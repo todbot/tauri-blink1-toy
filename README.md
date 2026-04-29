@@ -105,7 +105,9 @@ The three Tauri commands map 1:1 to the original Electron IPC channels:
 | `blink1_get_devices()` | `blink1:getDevices` |
 
 
-## Dependencies
+## Dependencies for Development
+
+Needed if you want to compile from source.
 
 
 ### MacOS
@@ -161,6 +163,18 @@ Install Rust via `rustup` — do not use `apt install rustc`, which is several v
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 source $HOME/.cargo/env
+```
+
+Install required system libraries (Ubuntu/Debian):
+
+```bash
+sudo apt install -y \
+  libgtk-3-dev \
+  libwebkit2gtk-4.1-dev \
+  libayatana-appindicator3-dev \
+  librsvg2-dev \
+  libssl-dev \
+  pkg-config
 ```
 
 Then install the Tauri CLI:
